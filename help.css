@@ -1,0 +1,249 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:
+        "Segoe UI",
+        sans-serif;
+
+    background:#d8dfd0;
+
+    color:#222;
+
+}
+
+.help-header{
+
+    background:
+        linear-gradient(
+            135deg,
+            #2fd13f,
+            #bfe1ba
+        );
+
+    color:white;
+
+    padding:30px 20px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.15);
+
+}
+
+.back-btn{
+
+    border:none;
+
+    background:white;
+
+    color:#2fd13f;
+
+    font-weight:600;
+
+    padding:10px 16px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.back-btn:hover{
+
+    transform:
+        translateY(-2px);
+
+}
+
+.help-header h1{
+
+    margin-top:15px;
+
+    font-size:2rem;
+
+}
+
+.help-header p{
+
+    margin-top:8px;
+
+    opacity:.95;
+
+}
+
+.help-container{
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:30px 20px;
+
+}
+
+.help-container h2{
+
+    font-size:2rem;
+
+    margin-bottom:25px;
+
+}
+
+.accordion{
+
+    margin-bottom:18px;
+
+}
+
+.accordion-btn{
+
+    width:100%;
+
+    background:white;
+
+    border:none;
+
+    border-radius:16px;
+
+    padding:22px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:1.1rem;
+
+    font-weight:700;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.accordion-btn:hover{
+
+    transform:
+        translateY(-2px);
+
+}
+
+.arrow{
+
+    font-size:1.2rem;
+
+    transition:.3s;
+
+}
+
+.accordion.active
+.arrow{
+
+    transform:
+        rotate(90deg);
+
+}
+
+.accordion-content{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    background:white;
+
+    border-radius:0 0 16px 16px;
+
+    transition:
+        max-height .4s ease;
+
+}
+
+.accordion-content-inner{
+
+    padding:25px;
+
+}
+
+.accordion-content img{
+
+    width:100%;
+
+    border-radius:12px;
+
+    border:
+        2px solid
+        #e5e5e5;
+
+    margin-bottom:18px;
+
+}
+
+.accordion-content p{
+
+    line-height:1.7;
+
+    color:#444;
+
+}
+
+.step-badge{
+
+    display:inline-block;
+
+    background:#2fd13f;
+
+    color:white;
+
+    padding:6px 12px;
+
+    border-radius:30px;
+
+    font-size:.85rem;
+
+    margin-bottom:15px;
+
+}
+
+.footer-space{
+
+    height:50px;
+
+}
+
+@media(max-width:768px){
+
+    .help-header h1{
+
+        font-size:1.6rem;
+
+    }
+
+    .accordion-btn{
+
+        font-size:1rem;
+
+        padding:18px;
+
+    }
+
+}

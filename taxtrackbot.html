@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>TaxTrack Bot</title>
+
+    <link
+        rel="stylesheet"
+        href="taxtrackbot.css">
+
+</head>
+<div id="sidePanel" class="side-panel">
+
+    <div class="panel-header">
+
+        <h2>TAXTRACK AI</h2>
+
+        <button
+            class="close-btn"
+            onclick="closePanel()">
+            ❐
+        </button>
+
+    </div>
+
+    <div class="panel-content">
+
+        <div class="menu-item">
+            💬 New Chat
+        </div>
+
+        <div class="menu-item disabled">
+            📌 Pinned Chats
+        </div>
+
+        <div class="menu-item disabled">
+            Recent
+        </div>
+
+    </div>
+
+    <button
+        class="dashboard-btn"
+        onclick="window.location.href='dashboard.html'">
+
+        Go back to Dashboard
+
+    </button>
+
+</div>
+
+<div
+    id="overlay"
+    class="overlay"
+    onclick="closePanel()">
+</div>
+
+<body>
+
+    <!-- HEADER -->
+
+    <div class="top-bar">
+<button
+    class="menu-btn"
+    onclick="openPanel()">
+    ☰
+</button>
+        <h2>
+            🤖 TaxTrack AI Assistant
+        </h2>
+
+    </div>
+
+    <!-- CHAT AREA -->
+
+    <div class="chat-container">
+
+        <div
+            id="chatMessages"
+            class="chat-messages">
+
+            <div id="welcomeScreen" class="welcome-screen">
+
+    <h1>
+        👋 Hi, I'm TaxTrack AI
+    </h1>
+
+    <p>
+        Ask me about...
+    </p>
+
+    <div class="suggestions">
+
+        <button
+            onclick="askSuggestion('What are my compliance requirements?')">
+
+            Compliance Requirements
+
+        </button>
+
+        <button
+            onclick="askSuggestion('What tax forms do I need?')">
+
+            Tax Forms
+
+        </button>
+
+        <button
+            onclick="askSuggestion('What are the latest tax rate updates?')">
+
+            Tax Rate Updates
+
+        </button>
+
+        <button
+            onclick="askSuggestion('When is my next filing deadline?')">
+
+            Filing Deadlines
+
+        </button>
+
+    </div>
+
+</div>
+
+<div
+    id="chatMessages"
+    class="chat-messages">
+</div>
+    <!-- INPUT AREA -->
+
+    <div class="bottom-bar">
+
+        <input
+            type="text"
+            id="userInput"
+            placeholder="Ask TaxTrack Bot...">
+
+        <button
+            class="send-btn"
+            onclick="sendMessage()">
+
+            ➤
+
+        </button>
+
+    </div>
+
+    <script src="taxtrackbot.js"></script>
+
+</body>

@@ -1,0 +1,305 @@
+/* =========================
+   PAGE
+========================= */
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#d4ddce;
+}
+
+/* =========================
+   CALENDAR CONTAINER
+========================= */
+
+.calendar-container{
+
+    width:85%;
+
+    margin:30px auto;
+
+    border:1px solid #8f9b87;
+
+    background:#d4ddce;
+
+    box-shadow:
+    0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.calendar-header{
+
+    display:grid;
+
+    grid-template-columns:
+    140px
+    1fr
+    140px;
+
+    height:90px;
+
+    background:#6b993e;
+
+    color:white;
+}
+
+#monthYear{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:0;
+
+    font-size:58px;
+
+    font-weight:bold;
+
+    text-transform:uppercase;
+}
+
+#prevBtn,
+#nextBtn{
+
+    background:#5f8c36;
+
+    border:1px solid #456227;
+
+    color:#002c87;
+
+    font-size:55px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.2s;
+}
+
+#prevBtn:hover,
+#nextBtn:hover{
+
+    background:#719f45;
+}
+
+/* =========================
+   WEEKDAYS
+========================= */
+
+.weekdays{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(7,1fr);
+}
+
+.weekdays div{
+
+    background:#c8d0c3;
+
+    border:1px solid white;
+
+    text-align:center;
+
+    padding:18px;
+
+    font-size:20px;
+
+    font-weight:bold;
+}
+
+.weekdays div:first-child{
+
+    color:red;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.calendar-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(7,1fr);
+
+    grid-auto-rows:105px;
+}
+
+/* =========================
+   DAY CELLS
+========================= */
+
+.day{
+
+    position:relative;
+
+    border:1px solid #d7d7d7;
+
+    padding:8px;
+
+    background:#cfd4cc;
+}
+
+.day:nth-child(14n+8),
+.day:nth-child(14n+9),
+.day:nth-child(14n+10),
+.day:nth-child(14n+11),
+.day:nth-child(14n+12),
+.day:nth-child(14n+13),
+.day:nth-child(14n+14){
+
+    background:#bcc4b8;
+}
+
+.day-number{
+
+    font-size:16px;
+}
+
+.sunday .day-number{
+
+    color:red;
+}
+
+.other-month{
+
+    color:#444;
+}
+
+/* =========================
+   EVENTS
+========================= */
+
+.event{
+
+    margin-top:5px;
+
+    font-size:11px;
+
+    color:#0c5cc2;
+
+    font-style:italic;
+
+    line-height:1.3;
+}
+
+.event::before{
+
+    content:"• ";
+
+    color:red;
+
+    font-size:14px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+
+    #monthYear{
+
+        font-size:35px;
+    }
+
+    .calendar-grid{
+
+        grid-auto-rows:85px;
+    }
+
+    #prevBtn,
+    #nextBtn{
+
+        font-size:35px;
+    }
+}
+
+.top-actions{
+    width:85%;
+    margin:20px auto 10px;
+}
+
+.back-btn{
+
+    padding:12px 25px;
+
+    background:#f5d5b7;
+
+    border:2px solid black;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.15s;
+}
+
+.back-btn:active{
+    transform:translateY(3px);
+}
+
+@media (max-width: 768px){
+
+    *{
+        box-sizing:border-box;
+    }
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .container,
+    .dashboard-container,
+    .calendar-container,
+    .content,
+    .main-content{
+
+        width:100%;
+        max-width:100%;
+
+        padding-left:10px;
+        padding-right:10px;
+    }
+
+    .card,
+    .dashboard-card,
+    .compliance-card,
+    .pending-card,
+    .deadline-card{
+
+        width:100% !important;
+
+        max-width:none !important;
+    }
+
+    button{
+
+        max-width:100%;
+    }
+
+    img{
+
+        max-width:100%;
+        height:auto;
+    }
+
+    table{
+
+        display:block;
+
+        overflow-x:auto;
+    }
+}

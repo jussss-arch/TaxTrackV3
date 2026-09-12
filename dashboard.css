@@ -1,0 +1,763 @@
+/* =========================
+   GENERAL
+========================= */
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#d8dfd0;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.top-bar{
+    height:80px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap: 5px;
+    padding:0 25px;
+
+    background:linear-gradient(
+        to right,
+        #2fd13f,
+        #bfe1ba
+    );
+}
+
+.menu-btn,
+.profile-btn,
+.account-btn{
+    cursor:pointer;
+}
+
+/* =========================
+   SEARCH BAR
+========================= */
+
+.search-container{
+    display:flex;
+    align-items:center;
+    gap:0px;
+}
+
+.search-container input{
+    width:700px;
+    height:40px;
+
+    padding:0 70px;
+
+    border-radius:70px;
+    border:1px solid #888;
+
+    font-size:20px;
+}
+
+.search-btn{
+    cursor:pointer;
+    font-size:25px;
+    background: transparent;
+    border: none;
+}
+
+/* =========================
+   DASHBOARD CONTENT
+========================= */
+
+.dashboard-content{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:40px;
+
+    padding:35px;
+
+    flex-wrap:wrap;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card{
+
+    width:420px;
+    height:420px;
+
+    background:#d9e0ec;
+
+    border-radius:35px;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,0.15);
+
+    padding:20px;
+
+    box-sizing:border-box;
+
+    text-align:center;
+}
+
+.pending-card,
+.deadline-card{
+    height:300px;
+}
+
+.card h2{
+    margin-top:10px;
+    font-size:26px;
+}
+
+/* =========================
+   COMPLIANCE SCORE
+========================= */
+
+.score-circle{
+
+    position:relative;
+
+    width:220px;
+    height:220px;
+
+    margin:40px auto 20px;
+}
+
+.score-circle svg{
+    width:220px;
+    height:220px;
+}
+
+.bg-circle{
+    fill:none;
+    stroke:#d3d3d3;
+    stroke-width:18;
+}
+
+.progress-circle{
+
+    fill:none;
+
+    stroke:#2fd13f;
+
+    stroke-width:18;
+
+    stroke-linecap:round;
+
+    transform:rotate(-90deg);
+
+    transform-origin:center;
+
+    stroke-dasharray:565;
+
+    stroke-dashoffset:565;
+
+    transition:1.5s;
+}
+
+.score-text{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:
+    translate(-50%, -50%);
+
+    font-size:42px;
+
+    font-weight:bold;
+}
+
+#scoreLabel{
+
+    font-size:28px;
+
+    margin-top:25px;
+}
+
+/* =========================
+   SCROLL BOX
+========================= */
+
+.scroll-box{
+
+    height:180px;
+
+    overflow-y:auto;
+
+    text-align:left;
+
+    padding:10px;
+}
+
+.pending-item{
+
+    display:block;
+
+    margin-bottom:15px;
+
+    font-size:18px;
+
+    cursor:pointer;
+}
+
+.pending-item input{
+
+    margin-right:10px;
+}
+
+/* =========================
+   BOTTOM BUTTONS
+========================= */
+
+.bottom-actions{
+
+    position:absolute;
+
+    right:30px;
+
+    bottom:10px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+.bot-btn{
+
+    padding:23px 35px;
+
+    border:none;
+
+    border-radius:35px;
+
+    cursor:pointer;
+ background:#f5d5b7;
+
+    color:black;
+
+    font-weight:bold;
+    font-weight:bold;
+    font-size:20px;
+    
+}
+
+.bot-btn{
+    border:2px solid black;
+}
+
+.bot-btn,
+.help-btn{
+    transition: 0.15s;
+}
+
+.bot-btn:active,
+.help-btn:active{
+    transform: translateY(3px);
+}
+
+.help-btn{
+
+    width:60px;
+    height:60px;
+background:#f5d5b7;
+
+    color:black;
+    border-radius:50%;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:24px;
+}
+
+.help-btn{
+      border:2px solid black;
+}
+
+.profile-btn{
+
+    width: 240px;
+
+    height: 55px;
+background:#07dec9;
+
+    color:black;
+    font-size: 20px;
+
+    font-weight: bold;
+
+    border-radius: 12px;
+}
+
+.menu-btn{
+
+    width: 40px;
+
+    height: 40px;
+
+    font-size: 25px;
+
+    border: 2px solid #333;
+
+    border-radius: 12px;
+
+    background: #d8f0c8;
+
+    cursor: pointer;
+}
+
+/* =========================
+   WELCOME BANNER
+========================= */
+
+.welcome-banner{
+    padding:20px 35px 10px;
+}
+
+.welcome-banner h1{
+    margin:0;
+    font-size:34px;
+    font-weight:bold;
+    color:#222;
+}
+
+.welcome-banner p{
+    margin-top:5px;
+    color:#666;
+    font-size:19px;
+}
+
+.side-panel{
+
+    position:fixed;
+
+    top:0;
+
+    right:-350px;
+
+    width:350px;
+
+    height:100vh;
+
+    overflow-y:auto;
+
+    background:#d6f1f7;
+
+    box-shadow:
+    -5px 0 15px rgba(0,0,0,0.2);
+
+    transition:0.3s;
+
+    z-index:1000;
+}
+
+.side-panel.show{
+
+    right:0;
+}
+
+.panel-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px;
+
+    border-bottom:1px solid #ddd;
+}
+
+.panel-header button{
+
+    border:none;
+
+    background:none;
+
+    font-size:24px;
+
+    cursor:pointer;
+}
+
+.panel-menu{
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.panel-item{
+    width: 200%;
+    padding:20px;
+
+    border:none;
+
+    background:#d6f1f7;
+
+    text-align:left;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    border-bottom:1px solid #eee;
+}
+
+.panel-item:hover{
+
+    background:#9fd9f0;
+}
+
+.accordion-content{
+
+    display:none;
+
+    padding:15px;
+
+    background:#c1ffaf;
+}
+
+.accordion-content{
+
+    display:none;
+
+    padding:20px;
+
+    background:#c1ffaf;
+}
+
+.info-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:12px 15px;
+
+    margin-bottom:12px;
+
+    box-shadow:
+    0 2px 8px rgba(0,0,0,0.1);
+}
+
+.info-label{
+
+    font-size:14px;
+
+    color:#e1923d;
+
+    margin-bottom:5px;
+}
+
+.info-value{
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:hsl(31, 73%, 56%);
+}
+
+.info-card{
+
+    background:white;
+
+    border-left:6px solid #2fd13f;
+
+    border-radius:15px;
+
+    padding:12px 15px;
+
+    margin-bottom:12px;
+
+    box-shadow:
+    0 2px 8px rgba(0,0,0,0.1);
+
+    transition:0.2s;
+}
+
+.info-card:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 4px 12px rgba(0,0,0,0.15);
+}
+
+.info-label{
+
+    font-size:13px;
+
+    color:#666;
+
+    margin-bottom:5px;
+}
+
+.info-value{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#222;
+}
+
+.more-details-btn{
+
+    background:none;
+
+    border:none;
+
+    color:#2fd13f;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    float:right;
+
+    cursor:pointer;
+}
+
+/* =========================
+   MENU PANEL
+========================= */
+
+.menu-panel{
+
+    position:fixed;
+
+    top:0;
+
+    left:-350px;
+
+    width:350px;
+
+    height:100vh;
+
+    background:#b2dc88;
+
+    box-shadow:
+    5px 0 15px rgba(0,0,0,0.25);
+
+    transition:0.3s;
+
+    z-index:1001;
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.menu-panel.show{
+
+    left:0;
+}
+
+.menu-header{
+
+    height:90px;
+
+    background:linear-gradient(
+        to right,
+        #2fd13f,
+        #bfe1ba
+    );
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 25px;
+}
+
+.menu-header h2{
+
+    margin:0;
+
+    font-size:32px;
+
+    font-weight:bold;
+}
+
+.menu-close{
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    background:#d8f0c8;
+}
+
+.menu-content{
+
+    flex:1;
+}
+
+.menu-item{
+
+    width:100%;
+
+    padding:25px;
+
+    border:none;
+
+    border-bottom:
+    1px solid rgba(0,0,0,0.1);
+
+    background:#b8d5a3;
+
+    text-align:left;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.menu-item:hover{
+
+    background:#a8c892;
+}
+
+.menu-footer{
+
+    padding:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.logout-btn{
+
+    border:none;
+
+    background:none;
+
+    font-size:20px;
+
+    cursor:pointer;
+}
+
+.account-btn{
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#a8c7ff;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+@media 
+(max-width: 768px){
+
+    *{
+        box-sizing:border-box;
+    }
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .container,
+    .dashboard-container,
+    .calendar-container,
+    .content,
+    .main-content{
+
+        width:100%;
+        max-width:100%;
+
+        padding-left:10px;
+        padding-right:10px;
+    }
+
+   .card,
+.dashboard-card,
+.compliance-card,
+.pending-card,
+.deadline-card{
+
+    width:100% !important;
+
+    max-width:350px !important;
+
+    margin:0 auto;
+
+    height:auto !important;
+
+    min-height:250px;
+}
+    button{
+
+        max-width:100%;
+    }
+
+    img{
+
+        max-width:100%;
+        height:auto;
+    }
+
+    table{
+
+        display:block;
+
+        overflow-x:auto;
+    }
+
+    .search-container{
+    flex:1;
+}
+
+.search-container input{
+
+    width:100%;
+
+    font-size:14px;
+
+    padding:0 20px;
+}
+
+.profile-btn{
+
+    width:auto;
+
+    height:45px;
+
+    font-size:14px;
+}
+
+}
+

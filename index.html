@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaxTrack</title>
+
+    <!-- GOOGLE IDENTITY SERVICES -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #12b82b 0%,
+                #43c94f 55%,
+                #a7e8a9 100%
+            );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        /* =========================
+           GENERAL PAGE
+        ========================== */
+
+        .page {
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        /* =========================
+           GENERAL LOGO
+        ========================== */
+
+        .logo {
+            width: 110px;
+            height: 100px;
+
+            object-fit: contain;
+
+            margin-bottom: 5px;
+        }
+
+
+        /* =========================
+           GENERAL TITLE
+        ========================== */
+
+        .title {
+            font-size: 125px;
+            font-weight: 900;
+
+            letter-spacing: -6px;
+
+            color: #000;
+
+            line-height: 0.9;
+        }
+
+
+        /* =========================
+           GENERAL SUBTITLE
+        ========================== */
+
+        .subtitle {
+            font-size: 34px;
+            font-weight: bold;
+
+            color: #000;
+
+            margin-top: 25px;
+        }
+
+
+        /* =========================
+           LANDING PAGE
+        ========================== */
+
+        .container {
+            width: 100%;
+            text-align: center;
+        }
+
+        .buttons {
+            margin-top: 90px;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 42px;
+        }
+
+        .btn {
+            width: 115px;
+            height: 40px;
+
+            background: #20c43a;
+
+            border: 2px solid #000;
+            border-radius: 7px;
+
+            color: #000;
+
+            font-size: 18px;
+            font-weight: 900;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 2px 2px rgba(0, 0, 0, 0.5);
+
+            transition: 0.2s ease;
+        }
+
+        .btn:hover {
+            background: #16a82d;
+            transform: scale(1.03);
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+
+        /* =========================
+           SIGN-UP LANDING PAGE
+        ========================== */
+
+        .signup-container {
+            width: 100%;
+            text-align: center;
+        }
+
+        .continue-text {
+            font-size: 18px;
+
+            margin-top: 10px;
+            margin-bottom: 28px;
+        }
+
+
+        /* GOOGLE */
+
+        .google-btn {
+            width: 255px;
+            height: 33px;
+
+            background: white;
+
+            border: none;
+            border-radius: 5px;
+
+            font-size: 18px;
+
+            cursor: pointer;
+        }
+
+        .google-btn:hover {
+            background: #eeeeee;
+        }
+
+        .g_id_signin {
+            width: 255px !important;
+            margin: 0 auto !important;
+        }
+
+
+        /* OR */
+
+        .or-text {
+            font-size: 17px;
+
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+
+        /* PHONE */
+
+        .phone-input {
+            display: block;
+
+            width: 255px;
+            height: 33px;
+
+            margin: 0 auto;
+
+            padding: 0 8px;
+
+            border: none;
+            border-radius: 5px;
+
+            font-size: 16px;
+        }
+
+        .phone-input:focus {
+            outline: 2px solid #000;
+        }
+
+
+        /* NEXT */
+
+        .next-btn {
+            width: 113px;
+            height: 35px;
+
+            margin-top: 20px;
+
+            background: #20c43a;
+
+            border: 2px solid #000;
+            border-radius: 6px;
+
+            font-size: 17px;
+            font-weight: 900;
+
+            cursor: pointer;
+        }
+
+        .next-btn:hover {
+            background: #16a82d;
+        }
+
+
+        /* =========================
+           CREATE ACCOUNT PAGE
+        ========================== */
+
+        .create-account-container {
+            width: 100%;
+            text-align: center;
+        }
+
+        .create-account-container h2 {
+            margin-top: 40px;
+
+            font-size: 36px;
+            font-weight: 900;
+        }
+
+        .description {
+            font-size: 18px;
+
+            margin-top: 15px;
+            margin-bottom: 24px;
+        }
+
+
+        /* ACCOUNT INPUT */
+
+        .account-input {
+            width: 515px;
+            height: 33px;
+
+            border: none;
+
+            padding: 0 12px;
+
+            font-size: 17px;
+
+            display: block;
+
+            margin: 0 auto 15px;
+        }
+
+        .account-input:focus {
+            outline: 2px solid #000;
+        }
+
+
+        /* PASSWORD */
+
+        .password-container {
+            position: relative;
+
+            width: 515px;
+
+            margin: 0 auto 15px;
+        }
+
+        .password-container .account-input {
+            width: 100%;
+
+            margin: 0;
+        }
+
+        .eye {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    font-size: 18px;
+    cursor: pointer;
+
+    line-height: 3;
+}
+
+
+        /* CREATE ACCOUNT BUTTON */
+
+        .create-btn {
+            width: 250px;
+            height: 33px;
+
+            background: #20c43a;
+
+            border: 2px solid #000;
+            border-radius: 6px;
+
+            font-size: 16px;
+            font-weight: 900;
+
+            cursor: pointer;
+        }
+
+        .create-btn:hover {
+            background: #16a82d;
+        }
+
+
+        /* =========================
+           LOGIN PAGE
+        ========================== */
+
+        #loginPage {
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .login-container {
+            width: 100%;
+            text-align: center;
+        }
+
+
+        /* LOGIN LOGO */
+
+        .login-container .logo {
+            width: 95px;
+            height: 85px;
+
+            object-fit: contain;
+
+            margin-bottom: 5px;
+        }
+
+
+        /* LOGIN TITLE */
+
+        .login-container .title {
+            font-size: 105px;
+            font-weight: 900;
+
+            letter-spacing: -5px;
+
+            line-height: 0.9;
+
+            color: #000;
+        }
+
+
+        /* LOGIN SUBTITLE */
+
+        .login-container .subtitle {
+            font-size: 30px;
+            font-weight: bold;
+
+            margin-top: 18px;
+
+            color: #000;
+        }
+
+
+        /* LOGIN HEADING */
+
+        .login-heading {
+            font-size: 18px;
+            font-weight: normal;
+
+            margin-top: 28px;
+            margin-bottom: 22px;
+
+            color: #000;
+        }
+
+
+        /* LOGIN INPUTS */
+
+        .login-container .account-input {
+            display: block;
+
+            width: 255px;
+            height: 32px;
+
+            margin: 0 auto 35px;
+
+            padding: 5px 10px;
+
+            border: none;
+            border-radius: 6px;
+
+            font-size: 16px;
+
+            outline: none;
+        }
+
+        .login-container .account-input:focus {
+            outline: 2px solid #000;
+        }
+
+
+        /* LOGIN PASSWORD */
+
+        .login-container .password-container {
+            position: relative;
+
+            width: 255px;
+
+            margin: 0 auto 20px;
+        }
+
+        .login-container .password-container .account-input {
+            width: 255px;
+
+            margin: 0;
+        }
+
+
+        /* LOGIN EYE */
+
+        .login-container .eye {
+            position: absolute;
+
+            right: 10px;
+            top: 50%;
+
+            cursor: pointer;
+
+            font-size: 17px;
+        }
+
+
+        /* ENTER BUTTON */
+
+        .login-container .create-btn {
+            width: 115px;
+            height: 35px;
+
+            margin-top: 5px;
+
+            background: #20c43a;
+
+            border: 2px solid #000;
+            border-radius: 7px;
+
+            color: #000;
+
+            font-size: 17px;
+            font-weight: 900;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 2px 2px rgba(0, 0, 0, 0.5);
+
+            transition: 0.2s ease;
+        }
+
+        .login-container .create-btn:hover {
+            background: #16a82d;
+
+            transform: scale(1.03);
+        }
+
+        .login-container .create-btn:active {
+            transform: scale(0.97);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            .title {
+                font-size: 65px;
+            }
+
+            .subtitle {
+                font-size: 20px;
+            }
+
+            .account-input,
+            .password-container {
+                width: 90%;
+            }
+
+            .create-account-container h2 {
+                font-size: 28px;
+            }
+
+            .description {
+                font-size: 15px;
+            }
+
+            .login-container .title {
+                font-size: 65px;
+            }
+
+            .login-container .subtitle {
+                font-size: 20px;
+            }
+
+            .login-container .account-input,
+            .login-container .password-container {
+                width: 255px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         LANDING PAGE
+    ================================== -->
+
+    <section id="landingPage" class="page">
+
+        <div class="container">
+
+            <img
+                src="logo.png"
+                alt="TaxTrack Logo"
+                class="logo"
+            >
+
+            <h1 class="title">
+                TaxTrack
+            </h1>
+
+            <p class="subtitle">
+                AI-Powered Tax Monitoring for MSEs
+            </p>
+
+            <div class="buttons">
+
+                <button
+                    class="btn"
+                    onclick="login()"
+                >
+                    LOG-IN
+                </button>
+
+                <button
+                    class="btn"
+                    onclick="showSignup()"
+                >
+                    SIGN-UP
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         SIGN-UP LANDING PAGE
+    ================================== -->
+
+    <section
+        id="signupLanding"
+        class="page"
+        style="display: none;"
+    >
+
+        <div class="signup-container">
+
+            <img
+                src="logo.png"
+                alt="TaxTrack Logo"
+                class="logo"
+            >
+
+            <h1 class="title">
+                TaxTrack
+            </h1>
+
+            <p class="subtitle">
+                AI-Powered Tax Monitoring for MSEs
+            </p>
+
+            <p class="continue-text">
+                Continue with
+            </p>
+
+
+            <!-- GOOGLE SIGN-IN -->
+
+            <div
+                id="g_id_onload"
+                data-client_id="1093437920391-g58u1h14h2moa6kgd7j4u1hv49u9ahak.apps.googleusercontent.com"
+                data-callback="handleGoogleLogin"
+                data-auto_prompt="false"
+            >
+            </div>
+
+            <div
+                class="g_id_signin"
+                data-type="standard"
+                data-size="large"
+                data-theme="outline"
+                data-text="continue_with"
+                data-shape="rectangular"
+                data-logo_alignment="left"
+            >
+            </div>
+
+
+            <p class="or-text">
+                or
+            </p>
+
+
+            <!-- PHONE NUMBER -->
+
+            <input
+                type="tel"
+                id="phoneNumber"
+                class="phone-input"
+                placeholder="+63"
+                maxlength="13"
+            >
+
+
+            <!-- NEXT -->
+
+            <button
+                class="next-btn"
+                onclick="goToCreateAccount()"
+            >
+                NEXT
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         CREATE ACCOUNT PAGE
+    ================================== -->
+
+    <section
+        id="createAccountPage"
+        class="page"
+        style="display: none;"
+    >
+
+        <div class="create-account-container">
+
+            <img
+                src="logo.png"
+                alt="TaxTrack Logo"
+                class="logo"
+            >
+
+            <h1 class="title">
+                TaxTrack
+            </h1>
+
+            <p class="subtitle">
+                AI-Powered Tax Monitoring for MSEs
+            </p>
+
+            <h2>
+                Welcome to TaxTrack!
+            </h2>
+
+            <p class="description">
+                Create your account and stay ahead of every tax deadline
+            </p>
+
+
+            <!-- EMAIL -->
+
+            <input
+                type="email"
+                id="email"
+                class="account-input"
+                placeholder="Email address"
+            >
+
+
+            <!-- PASSWORD -->
+
+            <div class="password-container">
+
+                <input
+                    type="password"
+                    id="password"
+                    class="account-input"
+                    placeholder="Create password"
+                >
+
+                <span
+                    class="eye"
+                    onclick="togglePassword('password', this)"
+                >
+                    👁
+                </span>
+
+            </div>
+
+
+            <!-- REPEAT PASSWORD -->
+
+            <div class="password-container">
+
+                <input
+                    type="password"
+                    id="repeatPassword"
+                    class="account-input"
+                    placeholder="Repeat password"
+                >
+
+                <span
+                    class="eye"
+                    onclick="togglePassword('repeatPassword', this)"
+                >
+                    👁
+                </span>
+
+            </div>
+
+
+            <!-- CREATE ACCOUNT -->
+
+            <button
+                class="create-btn"
+                onclick="createAccount()"
+            >
+                CREATE ACCOUNT
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         LOGIN PAGE
+    ================================== -->
+
+    <section
+        id="loginPage"
+        class="page"
+        style="display: none;"
+    >
+
+        <div class="login-container">
+
+            <!-- LOGO -->
+
+            <img
+                src="logo.png"
+                alt="TaxTrack Logo"
+                class="logo"
+            >
+
+
+            <!-- TITLE -->
+
+            <h1 class="title">
+                TaxTrack
+            </h1>
+
+
+            <!-- SUBTITLE -->
+
+            <p class="subtitle">
+                AI-Powered Tax Monitoring for MSEs
+            </p>
+
+
+            <!-- LOGIN TEXT -->
+
+            <p class="login-heading">
+                Log-in to your Account
+            </p>
+
+
+            <!-- EMAIL -->
+
+            <input
+                type="email"
+                id="loginEmail"
+                class="account-input"
+                placeholder="Input email address"
+            >
+
+
+            <!-- PASSWORD -->
+
+            <div class="password-container">
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    class="account-input"
+                    placeholder="Password"
+                >
+
+                <span
+                    class="eye"
+                    onclick="togglePassword('loginPassword', this)"
+                >
+                    👁
+                </span>
+
+            </div>
+
+
+            <!-- ENTER BUTTON -->
+
+            <button
+                class="create-btn"
+                onclick="loginAccount()"
+            >
+                ENTER
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+
+        /* =========================
+           LANDING LOGIN
+        ========================== */
+
+        function login() {
+
+            document.getElementById("landingPage")
+                .style.display = "none";
+
+            document.getElementById("loginPage")
+                .style.display = "flex";
+
+        }
+
+
+        /* =========================
+           SHOW SIGN-UP
+        ========================== */
+
+        function showSignup() {
+
+            document.getElementById("landingPage")
+                .style.display = "none";
+
+            document.getElementById("signupLanding")
+                .style.display = "flex";
+
+        }
+
+
+        /* =========================
+           NEXT
+        ========================== */
+
+        function goToCreateAccount() {
+
+            const phone =
+                document.getElementById("phoneNumber").value;
+
+
+            if (phone.trim() === "") {
+
+                alert("Please enter your phone number.");
+
+                return;
+
+            }
+
+
+            document.getElementById("signupLanding")
+                .style.display = "none";
+
+            document.getElementById("createAccountPage")
+                .style.display = "flex";
+
+        }
+
+
+        /* =========================
+           GOOGLE
+        ========================== */
+
+        function handleGoogleLogin(response) {
+
+            document.getElementById("signupLanding")
+                .style.display = "none";
+
+
+            document.getElementById("createAccountPage")
+                .style.display = "flex";
+
+        }
+
+
+        /* =========================
+           SHOW / HIDE PASSWORD
+        ========================== */
+
+        function togglePassword(inputId, eye) {
+
+            const input =
+                document.getElementById(inputId);
+
+
+            if (input.type === "password") {
+
+                input.type = "text";
+
+            } else {
+
+                input.type = "password";
+
+            }
+
+        }
+
+
+        /* =========================
+           CREATE ACCOUNT
+        ========================== */
+
+        function createAccount() {
+
+            const email =
+                document.getElementById("email")
+                    .value
+                    .trim();
+
+
+            const password =
+                document.getElementById("password")
+                    .value;
+
+
+            const repeatPassword =
+                document.getElementById("repeatPassword")
+                    .value;
+
+
+            /* CHECK EMPTY FIELDS */
+
+            if (
+                email === "" ||
+                password === "" ||
+                repeatPassword === ""
+            ) {
+
+                alert("Please complete all fields.");
+
+                return;
+
+            }
+
+
+            /* CHECK EMAIL */
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+            if (!emailPattern.test(email)) {
+
+                alert("Please enter a valid email address.");
+
+                return;
+
+            }
+
+
+            /* CHECK PASSWORD LENGTH */
+
+            if (password.length < 8) {
+
+                alert(
+                    "Password must be at least 8 characters."
+                );
+
+                return;
+
+            }
+
+
+            /* CHECK PASSWORD MATCH */
+
+            if (password !== repeatPassword) {
+
+                alert("Passwords do not match.");
+
+                return;
+
+            }
+
+
+            /* ACCOUNT CREATED */
+
+            alert("Account created successfully!");
+
+
+            /* GO TO LOGIN */
+
+            document.getElementById("createAccountPage")
+                .style.display = "none";
+
+
+            document.getElementById("loginPage")
+                .style.display = "flex";
+
+        }
+
+
+        /* =========================
+           LOGIN ACCOUNT
+        ========================== */
+
+        function loginAccount() {
+
+            const email =
+                document.getElementById("loginEmail")
+                    .value
+                    .trim();
+
+
+            const password =
+                document.getElementById("loginPassword")
+                    .value;
+
+
+            /* CHECK EMPTY FIELDS */
+
+            if (
+                email === "" ||
+                password === ""
+            ) {
+
+                alert(
+                    "Please enter your email and password."
+                );
+
+                return;
+
+            }
+
+
+            / LOGIN SUCCESS */
+
+const businessInfo =
+    localStorage.getItem("businessInfo");
+
+if (businessInfo) {
+
+    window.location.href = "dashboard.html";
+
+} else {
+
+    window.location.href = "business.html";
+
+}
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

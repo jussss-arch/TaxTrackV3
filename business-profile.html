@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Business Profile - TaxTrack</title>
+
+    <link
+        rel="stylesheet"
+        href="business-profile.css">
+
+</head>
+
+<body>
+
+    <div class="profile-container">
+
+        <!-- HEADER -->
+
+        <div class="profile-header">
+
+                <button
+    class="back-btn"
+    onclick="history.back()">
+
+    Back
+
+            </button>
+
+            <div>
+
+                <h1>Business Profile</h1>
+
+                <p>
+                    Manage your business information
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- BASIC INFORMATION -->
+
+        <section class="profile-section">
+
+            <h2>Basic Information</h2>
+
+            <div class="form-grid">
+
+                <div class="field">
+
+                    <label>Business Name</label>
+
+                    <input
+                        type="text"
+                        id="businessName">
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Trade Name</label>
+
+                    <input
+                        type="text"
+                        id="tradeName">
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Type of Business</label>
+
+                    <select id="businessType">
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option>
+                            Retail
+                        </option>
+
+                        <option>
+                            Wholesale
+                        </option>
+
+                        <option>
+                            Manufacturing
+                        </option>
+
+                        <option>
+                            Services
+                        </option>
+
+                        <option>
+                            Online Selling
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Business Size</label>
+
+                    <select id="businessSize">
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option>
+                            Micro Enterprise
+                        </option>
+
+                        <option>
+                            Small Enterprise
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Registration Date</label>
+
+                    <input
+                        type="date"
+                        id="registrationDate">
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Nature of Business</label>
+
+                    <input
+                        type="text"
+                        id="natureOfBusiness"
+                        placeholder="e.g. Retail of clothing">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LOCATION AND CONTACT -->
+
+        <section class="profile-section">
+
+            <h2>Location & Contact</h2>
+
+            <div class="form-grid">
+
+                <div class="field full-width">
+
+                    <label>Business Address</label>
+
+                    <input
+                        type="text"
+                        id="businessAddress">
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Region</label>
+
+                    <select id="region">
+
+                        <option value="">
+                            Select Region
+                        </option>
+
+                        <option>
+                            Region VIII
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Municipality/City</label>
+
+                    <select id="city">
+
+                        <option value="">
+                            Select City
+                        </option>
+
+                        <option>
+                            Palo
+                        </option>
+
+                        <option>
+                            Tacloban
+                        </option>
+
+                        <option>
+                            Tanauan
+                        </option>
+
+                        <option>
+                            Burauen
+                        </option>
+
+                        <option>
+                            Dulag
+                        </option>
+
+                        <option>
+                            Alang-Alang
+                        </option>
+
+                        <option>
+                            Abuyog
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Contact Number</label>
+
+                    <input
+                        type="tel"
+                        id="contactNumber">
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Email Address</label>
+
+                    <input
+                        type="email"
+                        id="emailAddress">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+     <!-- TAX INFORMATION -->
+
+<section class="profile-section">
+
+    <h2>Tax Information</h2>
+
+    <div class="form-grid">
+
+        <div class="field">
+
+            <label>TIN</label>
+
+            <input
+                type="text"
+                id="tin"
+                placeholder="000-000-000-000">
+
+        </div>
+
+
+        <div class="field">
+
+            <label>RDO Code</label>
+
+            <input
+                type="text"
+                id="rdoCode">
+
+        </div>
+
+
+        <!-- TAXPAYER TYPE -->
+
+        <div class="field">
+
+            <label>Taxpayer Type</label>
+
+            <select id="taxpayerType">
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="Individual">
+                    Individual / Sole Proprietor
+                </option>
+
+                <option value="Partnership">
+                    Partnership
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- TAX OPTION -->
+
+        <div class="field">
+
+            <label>Tax Option</label>
+
+            <select id="taxOption">
+
+                <option value="8%">
+                    8% Income Tax
+                </option>
+
+                <option value="Graduated">
+                    Graduated Rates
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- INDIVIDUAL TAXPAYER TYPE -->
+
+        <div
+            class="field"
+            id="individualField"
+            style="display:none;">
+
+            <label>
+                Individual Taxpayer Type
+            </label>
+
+            <select id="individualType">
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="Resident Citizen">
+                    Resident Citizen
+                </option>
+
+                <option value="Non-Resident Citizen">
+                    Non-Resident Citizen
+                </option>
+
+                <option value="Resident Alien">
+                    Resident Alien
+                </option>
+
+                <option value="Non-Resident Alien">
+                    Non-Resident Alien
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- PARTNERSHIP TYPE -->
+
+        <div
+            class="field"
+            id="partnershipField"
+            style="display:none;">
+
+            <label>
+                Partnership Type
+            </label>
+
+            <select id="partnershipType">
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="General Partnership">
+                    General Partnership
+                </option>
+
+                <option value="Professional Partnership">
+                    Professional Partnership
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Date of VAT Registration
+            </label>
+
+            <input
+                type="date"
+                id="vatRegistrationDate">
+
+        </div>
+
+    </div>
+
+
+    <div class="checkbox-row">
+
+        <input
+            type="checkbox"
+            id="vat">
+
+        <label for="vat">
+
+            This is a VAT-registered Business
+
+        </label>
+
+    </div>
+
+</section>
+
+
+        <!-- BUSINESS OPERATIONS -->
+
+        <section class="profile-section">
+
+            <h2>Business Operations</h2>
+
+            <div class="form-grid">
+
+                <div class="field">
+
+                    <label>Number of Employees</label>
+
+                    <input
+                        type="number"
+                        id="numberOfEmployees"
+                        min="0">
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Has Branches?</label>
+
+                    <select id="hasBranches">
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="Yes">
+                            Yes
+                        </option>
+
+                        <option value="No">
+                            No
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Online Selling?</label>
+
+                    <select id="onlineSelling">
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="Yes">
+                            Yes
+                        </option>
+
+                        <option value="No">
+                            No
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Importing / Exporting?</label>
+
+                    <select id="importExport">
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="Yes">
+                            Yes
+                        </option>
+
+                        <option value="No">
+                            No
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TAX ACTIVITIES -->
+
+        <!-- TAX ACTIVITIES -->
+
+<section class="profile-section">
+
+    <h2>Tax Activities</h2>
+
+    <p class="section-description">
+        Select the tax activities that apply to your business.
+        TaxTrack will use these details to identify applicable requirements.
+    </p>
+
+
+    <!-- WITHHOLDING TAX -->
+
+    <div class="activity-group">
+
+        <h3>Withholding Tax</h3>
+
+        <p class="activity-help">
+            Select the types of withholding tax applicable to your business.
+        </p>
+
+
+        <label class="activity-item">
+
+            <input
+                type="checkbox"
+                id="withholdingCompensation">
+
+            <span>
+                Withholding Tax on Compensation
+            </span>
+
+        </label>
+
+
+        <label class="activity-item">
+
+            <input
+                type="checkbox"
+                id="withholdingExpanded">
+
+            <span>
+                Expanded Withholding Tax
+            </span>
+
+        </label>
+
+
+        <label class="activity-item">
+
+            <input
+                type="checkbox"
+                id="withholdingFinal">
+
+            <span>
+                Final Withholding Tax
+            </span>
+
+        </label>
+
+    </div>
+
+
+    <!-- DOCUMENTARY STAMP TAX -->
+
+    <div class="activity-group">
+
+        <h3>Documentary Stamp Tax</h3>
+
+        <label class="activity-item">
+
+            <input
+                type="checkbox"
+                id="hasDSTTransactions">
+
+            <span>
+                Business has transactions subject to Documentary Stamp Tax
+            </span>
+
+        </label>
+
+    </div>
+
+
+    <!-- EXCISE TAX -->
+
+    <div class="activity-group">
+
+        <h3>Excise Tax</h3>
+
+        <label class="activity-item">
+
+            <input
+                type="checkbox"
+                id="hasExciseTax">
+
+            <span>
+                Business engages in activities subject to Excise Tax
+            </span>
+
+        </label>
+
+    </div>
+
+
+    <!-- DIGITAL / NONRESIDENT -->
+
+    <div class="activity-group">
+
+        <h3>Nonresident / Digital Transactions</h3>
+
+        <label class="activity-item">
+
+            <input
+                type="checkbox"
+                id="hasDigitalTransactions">
+
+            <span>
+                Business has transactions involving nonresident
+                or digital service providers
+            </span>
+
+        </label>
+
+    </div>
+
+</section>
+
+
+        <!-- SAVE -->
+
+        <div class="save-area">
+
+            <button
+                class="save-btn"
+                onclick="saveBusinessProfile()">
+
+                SAVE CHANGES
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="business-profile.js"></script>
+
+</body>
+
+</html>

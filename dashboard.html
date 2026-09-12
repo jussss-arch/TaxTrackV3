@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaxTrack Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <!-- TOP NAVIGATION -->
+    <header class="top-bar">
+
+       <button
+    class="menu-btn"
+    onclick="openMenu()">
+
+    ☰
+
+</button>
+
+        <div class="search-container">
+            <input
+                type="text"
+                id="dashboardSearch"
+                placeholder="Search tax records, filings, deadlines..."
+            >
+            <button class="search-btn">
+                🔍
+            </button>
+        </div>
+
+        <button
+    class="profile-btn"
+    onclick="openPanel()">
+
+    BUSINESS PROFILE
+
+</button>
+
+    </header>
+    <div class="welcome-banner">
+
+    <h1 id="welcomeMessage">
+        Welcome Back!
+    </h1>
+
+    <p>
+        Stay on top of your tax obligations today.
+    </p>
+
+</div>
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard-content">
+
+        <!-- COMPLIANCE SCORE -->
+        <section class="card compliance-card">
+
+            <h2>Compliance Score</h2>
+
+            <div class="score-circle">
+
+                <svg width="220" height="220">
+
+                    <circle
+                        class="bg-circle"
+                        cx="110"
+                        cy="110"
+                        r="90">
+                    </circle>
+
+                    <circle
+                        class="progress-circle"
+                        cx="110"
+                        cy="110"
+                        r="90">
+                    </circle>
+
+                </svg>
+
+                <div class="score-text">
+                    <span id="scoreValue">100%</span>
+                </div>
+
+            </div>
+
+            <h3 id="scoreLabel">EXCELLENT</h3>
+
+        </section>
+
+        <!-- PENDING FILINGS -->
+       <section class="card pending-card">
+
+    <h2>
+        Pending Filings
+    </h2>
+
+    <div
+        class="scroll-box"
+        id="pendingFilingsContainer"
+    ></div>
+
+</section>
+
+        <!-- UPCOMING DEADLINES -->
+        <section class="card deadline-card">
+
+            <h2>Upcoming Deadlines</h2>
+
+           <div class="scroll-box"
+     id="upcomingDeadlines">
+
+</div>
+
+        </section>
+
+    </main>
+
+    <!-- BOTTOM ACTIONS -->
+    <div class="bottom-actions">
+        
+        <button
+    class="bot-btn"
+    onclick="window.location.href='taxtrackbot.html'">
+
+    🤖
+
+</button>
+        <button
+    class="help-btn"
+    onclick="window.location.href='help.html'">
+    ?
+</button>
+
+    </div>
+
+    <div id="profilePanel" class="side-panel">
+
+    <div class="panel-header">
+        <h2>Business Profile</h2>
+
+        <button onclick="closePanel()">
+            ✕
+        </button>
+    </div>
+
+   <button
+    class="panel-item"
+    onclick="toggleAccordion('businessContent')">
+
+    Business Information ▼
+
+</button>
+
+<div id="businessContent"
+    class="accordion-content">
+
+    <div class="info-card">
+
+        <div class="info-label">
+            Business Name
+        </div>
+
+        <div id="panelBusinessName"
+            class="info-value">
+            -
+        </div>
+
+    </div>
+
+    <div class="info-card">
+
+        <div class="info-label">
+            Business Type
+        </div>
+
+        <div id="panelBusinessType"
+            class="info-value">
+            -
+        </div>
+
+    </div>
+
+    <div class="info-card">
+
+        <div class="info-label">
+            Business Size
+        </div>
+
+        <div id="panelBusinessSize"
+            class="info-value">
+            -
+        </div>
+
+    </div>
+
+    <div class="info-card">
+
+        <div class="info-label">
+            Registration Date
+        </div>
+
+        <div id="panelRegistrationDate"
+            class="info-value">
+            -
+        </div>
+
+    </div>
+
+<button
+    class="more-details-btn"
+    onclick="window.location.href='business-profile.html'">
+
+    More Details →
+
+</button>
+</div>
+   
+<button
+    class="panel-item"
+    onclick="toggleAccordion('salesContent')">
+
+    Sales and Expenses ▼
+
+</button>
+
+<div id="salesContent"
+    class="accordion-content">
+
+    <div class="info-card">
+
+        <div class="info-label">
+            Quarterly Sales
+        </div>
+
+        <div id="panelSales"
+            class="info-value">
+            -
+        </div>
+
+    </div>
+
+    <div class="info-card">
+
+        <div class="info-label">
+           Annual Cost of Goods Sold
+        </div>
+
+        <div id="panelCOGS"
+            class="info-value">
+            -
+        </div>
+
+    </div>
+
+    <div class="info-card">
+
+        <div class="info-label">
+            Rent Expense
+        </div>
+
+        <div id="panelRent"
+            class="info-value">
+            -
+        </div>
+
+    </div>
+
+    <div class="info-card">
+
+        <div class="info-label">
+            Miscellaneous Expense
+        </div>
+
+        <div id="panelMisc"
+            class="info-value">
+            -
+        </div>
+
+    </div>
+
+    <button
+    class="more-details-btn"
+    onclick="window.location.href='sales-expenses.html'">
+
+    More Details →
+
+</button>
+
+</div> <!-- salesContent -->
+
+</div> <!-- profilePanel -->
+
+
+<div id="menuPanel" class="menu-panel">
+    <div class="menu-header">
+
+        <h2>YOUR MENU</h2>
+
+        <button
+            class="menu-close"
+            onclick="closeMenu()">
+
+            ☰
+
+        </button>
+
+    </div>
+
+    <div class="menu-content">
+
+        <button class="menu-item"
+                onclick="window.location.href='dashboard.html'">
+            📊 DASHBOARD
+        </button>
+
+        <button class="menu-item"
+                onclick="window.location.href='taxmonitor.html'">
+            🎯 TAX MONITOR
+        </button>
+
+        <button class="menu-item"
+                onclick="window.location.href='tax-calendar.html'">
+            📅 TAX CALENDAR
+        </button>
+
+        <button class="menu-item"
+                onclick="window.location.href='notifications.html'">
+            🔔 NOTIFICATIONS
+        </button>
+
+        <button class="menu-item"
+                onclick="window.location.href='about-taxtrack.html'">
+            💡 ABOUT TAXTRACK
+        </button>
+
+        
+    </div>
+<div class="menu-footer">
+
+    <button class="logout-btn">
+        Logout
+    </button>
+
+    <button class="account-btn">
+        ACCOUNT
+    </button>
+
+</div>
+</div>
+<script src="tax-events.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

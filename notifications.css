@@ -1,0 +1,139 @@
+body{
+
+    margin:0;
+
+    font-family:Arial,sans-serif;
+
+    background:#d8dfd0;
+}
+
+.page-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:20px;
+
+    background:#6b993e;
+
+    color:white;
+}
+
+.page-header button{
+
+    padding:10px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+.notifications-container{
+
+    width:90%;
+
+    margin:20px auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+.notification-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:15px;
+
+    box-shadow:
+    0 2px 8px rgba(0,0,0,0.15);
+}
+
+.notification-card h3{
+
+    margin:0 0 10px 0;
+}
+
+.notification-card p{
+
+    margin:5px 0;
+}
+
+.due-today{
+
+    border-left:8px solid red;
+}
+
+.due-soon{
+
+    border-left:8px solid orange;
+}
+
+.upcoming{
+
+    border-left:8px solid green;
+}
+
+@media (max-width: 768px){
+
+    *{
+        box-sizing:border-box;
+    }
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .container,
+    .dashboard-container,
+    .calendar-container,
+    .content,
+    .main-content{
+
+        width:100%;
+        max-width:100%;
+
+        padding-left:10px;
+        padding-right:10px;
+    }
+
+    .card,
+    .dashboard-card,
+    .compliance-card,
+    .pending-card,
+    .deadline-card{
+
+        width:100% !important;
+
+        max-width:none !important;
+    }
+
+    button{
+
+        max-width:100%;
+    }
+
+    img{
+
+        max-width:100%;
+        height:auto;
+    }
+
+    table{
+
+        display:block;
+
+        overflow-x:auto;
+    }
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Information - TaxTrack</title>
+<link rel="stylesheet" href="business.css">
+</head>
+
+<body>
+
+<div class="logo-area">
+    <h1>TaxTrack</h1>
+    <p>AI-Powered Tax Monitoring for MSEs</p>
+</div>
+
+<div class="business-container">
+
+    <h2 class="page-title">Tell us about your business</h2>
+
+    <div class="form-grid">
+
+        <div class="field">
+            <label>Business Name</label>
+            <input type="text" id="businessName">
+        </div>
+
+        <div class="field">
+            <label>Type of Business</label>
+            <select id="businessType">
+                <option value="">Select</option>
+                <option>Retail</option>
+                <option>Wholesale</option>
+                <option>Manufacturing</option>
+                <option>Services</option>
+                <option>Online Selling</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label>Business Size</label>
+            <select id="businessSize">
+                <option value="">Select</option>
+                <option>Micro Enterprise</option>
+                <option>Small Enterprise</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label>Registration Date</label>
+            <input type="date" id="registrationDate">
+        </div>
+
+        <div class="field">
+            <label>Region</label>
+            <select id="region">
+                <option value="">Select Region</option>
+                <option>Region VIII</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label>Municipality/City</label>
+            <select id="city">
+                <option value="">Select City</option>
+                <option>Palo</option>
+                <option>Tacloban</option>
+                <option>Tanauan</option>
+                <option>Burauen</option>
+                <option>Dulag</option>
+                <option>Alang-Alang</option>
+                <option>Abuyog</option>
+            </select>
+        </div>
+
+        <!-- TAXPAYER TYPE -->
+        <div class="field">
+            <label>Taxpayer Type</label>
+            <select id="taxpayerType">
+                <option value="">Select</option>
+                <option value="Individual">Individual</option>
+                <option value="Partnership">Partnership</option>
+            </select>
+        </div>
+
+        <!-- TAX OPTION -->
+        <div class="field">
+            <label>Tax Option</label>
+            <select id="taxOption">
+                <option value="8%">8% Income Tax</option>
+                <option value="Graduated">Graduated Rates</option>
+            </select>
+        </div>
+
+        <!-- INDIVIDUAL TAXPAYER TYPE -->
+        <div class="field" id="individualField" style="display: none;">
+            <label>Individual Taxpayer Type</label>
+            <select id="individualType">
+                <option value="">Select</option>
+                <option value="Resident Citizen">Resident Citizen</option>
+                <option value="Non-Resident Citizen">Non-Resident Citizen</option>
+                <option value="Resident Alien">Resident Alien</option>
+                <option value="Non-Resident Alien">Non-Resident Alien</option>
+            </select>
+        </div>
+
+        <!-- PARTNERSHIP TYPE -->
+        <div class="field" id="partnershipField" style="display: none;">
+            <label>Partnership Type</label>
+            <select id="partnershipType">
+                <option value="">Select</option>
+                <option value="General Partnership">General Partnership</option>
+                <option value="Professional Partnership">Professional Partnership</option>
+            </select>
+        </div>
+
+    </div>
+
+    <button class="save-btn" onclick="saveBusinessInfo()">
+        SAVE & CONTINUE
+    </button>
+
+</div>
+
+<script src="business.js"></script>
+
+</body>
+</html>

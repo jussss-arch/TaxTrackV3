@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Tax Calendar</title>
+
+    <link
+        rel="stylesheet"
+        href="tax-calendar.css">
+
+</head>
+
+<body>
+
+<div class="top-actions">
+    <button
+        class="back-btn"
+        onclick="window.location.href='dashboard.html'">
+        Back
+    </button>
+</div>
+
+    <div class="calendar-container">
+
+        <div class="calendar-header">
+
+            <button id="prevBtn">
+                ◀
+            </button>
+
+            <h2 id="monthYear">
+            </h2>
+
+            <button id="nextBtn">
+                ▶
+            </button>
+
+        </div>
+
+        <div class="weekdays">
+
+            <div>Sunday</div>
+            <div>Monday</div>
+            <div>Tuesday</div>
+            <div>Wednesday</div>
+            <div>Thursday</div>
+            <div>Friday</div>
+            <div>Saturday</div>
+
+        </div>
+
+        <div
+            id="calendarGrid"
+            class="calendar-grid">
+
+        </div>
+
+    </div>
+    <script src="tax-events.js"></script>
+    <script src="tax-calendar.js"></script>
+
+</body>
+
+</html>

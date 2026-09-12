@@ -1,0 +1,70 @@
+body{
+    margin:0;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background: linear-gradient(
+        135deg,
+        #12b82b 0%,
+        #43c94f 55%,
+        #a7e8a9 100%
+    );
+
+    font-family: Arial, sans-serif;
+}
+
+@media (max-width: 768px){
+
+    *{
+        box-sizing:border-box;
+    }
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .container,
+    .dashboard-container,
+    .calendar-container,
+    .content,
+    .main-content{
+
+        width:100%;
+        max-width:100%;
+
+        padding-left:10px;
+        padding-right:10px;
+    }
+
+    .card,
+    .dashboard-card,
+    .compliance-card,
+    .pending-card,
+    .deadline-card{
+
+        width:100% !important;
+
+        max-width:none !important;
+    }
+
+    button{
+
+        max-width:100%;
+    }
+
+    img{
+
+        max-width:100%;
+        height:auto;
+    }
+
+    table{
+
+        display:block;
+
+        overflow-x:auto;
+    }
+}

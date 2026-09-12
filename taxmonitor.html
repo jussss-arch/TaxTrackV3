@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Tax Monitor</title>
+
+    <link
+        rel="stylesheet"
+        href="taxmonitor.css">
+
+</head>
+
+<body>
+
+    <header class="top-bar">
+
+       <button
+    class="menu-btn"
+    onclick="openMenu()">
+
+    ☰
+
+</button>
+
+        <div class="search-container">
+
+            <input
+                type="text"
+                id="taxMonitorSearch"
+                placeholder="Search tax records, filings, deadlines..."
+            >
+
+            <button class="search-btn">
+                🔍
+            </button> 
+
+        </div>
+
+        <!-- BUSINESS PROFILE -->
+        <button
+            class="profile-btn"
+            onclick="openPanel()">
+
+            BUSINESS PROFILE
+
+        </button>
+
+    </header>
+
+
+    <main class="tax-monitor-container">
+
+        <!-- LEFT SECTION -->
+
+        <section class="tax-monitor-left">
+
+            <h1 class="monitor-title">
+
+                TAX
+                <br>
+                MONITOR
+
+            </h1>
+
+
+            <!-- Taxable Income -->
+
+            <div class="tax-card">
+
+                <div class="card-top">
+
+                    <span>
+                        ESTIMATED TAXABLE INCOME
+                    </span>
+
+                    <button
+    class="eye-btn"
+    onclick="toggleTaxableIncome()">
+
+    👁
+
+</button>
+
+                </div>
+
+                <h2
+                    class="amount"
+                    id="taxableIncome">
+
+                    ₱ ******.00
+
+                </h2>
+
+            </div>
+
+
+            <!-- Income Tax Due -->
+
+            <div class="tax-card">
+
+                <div class="card-top">
+
+                    <span>
+                       ESTIMATED TAX PAYABLE (EXCLUDING CREDITABLE WITHHOLDING TAX)
+                    </span>
+
+                    <button
+    class="eye-btn"
+    onclick="toggleIncomeTax()">
+
+    👁
+
+</button>
+
+                </div>
+
+                <h2
+                    class="amount"
+                    id="incomeTaxDue">
+
+                    ₱ ******.00
+
+                </h2>
+
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT SECTION -->
+
+        <section class="tax-monitor-right">
+
+            <h2 class="requirements-title">
+                Your Tax Requirements
+            </h2>
+
+            <div
+                id="requirementsContainer"
+                class="requirements-container">
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ========================= -->
+<!-- MENU SIDE PANEL -->
+<!-- ========================= -->
+
+<div id="menuPanel" class="menu-panel">
+
+    <div class="menu-header">
+
+        <h2>YOUR MENU</h2>
+
+        <button
+            class="menu-close"
+            onclick="closeMenu()">
+
+            ☰
+
+        </button>
+
+    </div>
+
+
+    <div class="menu-content">
+
+        <button
+            class="menu-item"
+            onclick="window.location.href='dashboard.html'">
+
+            📊 DASHBOARD
+
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="window.location.href='taxmonitor.html'">
+
+            🎯 TAX MONITOR
+
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="window.location.href='tax-calendar.html'">
+
+            📅 TAX CALENDAR
+
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="window.location.href='notifications.html'">
+
+            🔔 NOTIFICATIONS
+
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="window.location.href='about-taxtrack.html'">
+
+            💡 ABOUT TAXTRACK
+
+        </button>
+
+    </div>
+
+
+    <div class="menu-footer">
+
+        <button class="logout-btn">
+            Logout
+        </button>
+
+
+        <button class="account-btn">
+            ACCOUNT
+        </button>
+
+    </div>
+
+</div>
+
+    <!-- ========================= -->
+    <!-- BUSINESS PROFILE SIDE PANEL -->
+    <!-- ========================= -->
+
+    <div
+        id="profilePanel"
+        class="side-panel">
+
+        <div class="panel-header">
+
+            <h2>
+                Business Profile
+            </h2>
+
+            <button
+                onclick="closePanel()">
+
+                ✕
+
+            </button>
+
+        </div>
+
+
+        <!-- BUSINESS INFORMATION -->
+
+        <button
+            class="panel-item"
+            onclick="toggleAccordion('businessContent')">
+
+            Business Information ▼
+
+        </button>
+
+
+        <div
+            id="businessContent"
+            class="accordion-content">
+
+            <div class="info-card">
+
+                <div class="info-label">
+                    Business Name
+                </div>
+
+                <div
+                    id="panelBusinessName"
+                    class="info-value">
+
+                    -
+
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-label">
+                    Business Type
+                </div>
+
+                <div
+                    id="panelBusinessType"
+                    class="info-value">
+
+                    -
+
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-label">
+                    Business Size
+                </div>
+
+                <div
+                    id="panelBusinessSize"
+                    class="info-value">
+
+                    -
+
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-label">
+                    Registration Date
+                </div>
+
+                <div
+                    id="panelRegistrationDate"
+                    class="info-value">
+
+                    -
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="more-details-btn"
+                onclick="window.location.href='business-profile.html'">
+
+                More Details →
+
+            </button>
+
+        </div>
+
+
+        <!-- SALES AND EXPENSES -->
+
+        <button
+            class="panel-item"
+            onclick="toggleAccordion('salesContent')">
+
+            Sales and Expenses ▼
+
+        </button>
+
+
+        <div
+            id="salesContent"
+            class="accordion-content">
+
+            <div class="info-card">
+
+                <div class="info-label">
+                    Quarterly Sales
+                </div>
+
+                <div
+                    id="panelSales"
+                    class="info-value">
+
+                    -
+
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-label">
+                    Annual Cost of Goods Sold
+                </div>
+
+                <div
+                    id="panelCOGS"
+                    class="info-value">
+
+                    -
+
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-label">
+                    Rent Expense
+                </div>
+
+                <div
+                    id="panelRent"
+                    class="info-value">
+
+                    -
+
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-label">
+                    Miscellaneous Expense
+                </div>
+
+                <div
+                    id="panelMisc"
+                    class="info-value">
+
+                    -
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="more-details-btn"
+                onclick="window.location.href='sales-expenses.html'">
+
+                More Details →
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="taxmonitor.js"></script>
+
+</body>
+
+</html>
